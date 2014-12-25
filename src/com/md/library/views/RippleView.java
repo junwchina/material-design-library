@@ -69,10 +69,10 @@ public class RippleView extends RelativeLayout {
 	}
 	
 	public void init(Context context, AttributeSet attrs) {
-		onPreInitialize();
+		onPreInitialize(context);
 		onInitAttributes(context, attrs);
 		onInit(context);
-		onPostInitialize();
+		onPostInitialize(context);
 	}
 	
 	
@@ -144,10 +144,15 @@ public class RippleView extends RelativeLayout {
 			float progress = (mTimer * FRAME_RATE * 1.0f) / mDuration;
 			int alpha = (int) Math.round(mPaintAlpha * progress);
 			mPaint.setAlpha(mPaintAlpha - alpha);
-            canvas.drawCircle(x, y, (mRadiusMax * (((float) mTimer * FRAME_RATE) / mDuration)), mPaint);      
-		
+			float radius = (mRadiusMax * (((float) mTimer * FRAME_RATE) / mDuration));
+			onDrawCircle(canvas, x, y, radius, mPaint);
 			mTimer++;
 		}
+	}
+	
+	
+	protected void onDrawCircle(Canvas canvas, float x, float y, float radius, Paint paint) {
+        canvas.drawCircle(x, y, radius, paint);
 	}
 	
 	
@@ -196,8 +201,8 @@ public class RippleView extends RelativeLayout {
     }
     
     
-	protected void onPreInitialize() {}
-	protected void onPostInitialize() {}
+	protected void onPreInitialize(Context context) {}
+	protected void onPostInitialize(Context context) {}
 	protected void onPostInitAttributes(Context context, AttributeSet attrs, TypedArray typedArray) {}
 	protected void onPostInit(Context context) {}
 }

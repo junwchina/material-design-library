@@ -11,6 +11,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public abstract class Button extends RippleView {
 	protected int mButtonHorizontalMargin;
 	protected int mButtonVerticalMargin;
 	protected int mButtonHorizontalPadding;
+	protected int mButtonVerticalGap;
 	
 	protected int mDefaultTextSize;
 	protected int mBackgroundResourceId;
@@ -43,13 +45,15 @@ public abstract class Button extends RippleView {
 	}
 
 	@Override
-	protected void onPreInitialize() {
+	protected void onPreInitialize(Context context) {
+		super.onPreInitialize(context);
 		mButtonHeight = 36;
 		mButtonHorizontalMargin = 4;		// 4dp
 		mButtonVerticalMargin = 12;
 		mButtonHorizontalPadding = 8;
 		mDefaultTextSize = 14;
 		mBackgroundResourceId = -1;
+		mButtonVerticalGap = 12;
 	}
 	
 	
@@ -69,7 +73,7 @@ public abstract class Button extends RippleView {
 		if(mBackgroundResourceId != -1) {
 			setBackgroundResource(mBackgroundResourceId);
 		}
-//		setBackgroundColor(mBackgroundColor);
+		setBackgroundColor(mBackgroundColor);
 
 		mButtonTextView = new TextView(context);
 
