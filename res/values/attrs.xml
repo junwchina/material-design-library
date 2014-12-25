@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RippleView">
+        <attr name="backgroundColor" format="color|reference" />
+        
+        <!-- Color of ripple animation -->
+        <attr name="rippleColor" format="color|reference" />
+        <!-- Whether zoom RippleView when it was clicked -->
+        <attr name="zoom" format="boolean" />
+        <attr name="clickAfterRipple" format="boolean" />
+        <attr name="rippleAlpha" format="integer"/>
+        <attr name="duration" format="integer"/>
+        
+        <!--  for button -->
+        <attr name="textColor" format="color|reference" />
+        <attr name="textSize" format="reference|dimension" />
+        <attr name="text" format="string|reference" />
+        
+    </declare-styleable>
+
+</resources>
