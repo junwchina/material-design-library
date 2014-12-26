@@ -23,7 +23,7 @@
     <com.md.library.views.FlatButton android:id="@+id/flat_button"
         android:layout_width="wrap_content" 
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="@android:color/transparent"
         app:text="Flat Button"
         app:textColor="#2196F3" /> 
     

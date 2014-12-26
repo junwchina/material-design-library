@@ -2,6 +2,7 @@ package com.md.library.demo;
 
 import com.md.library.R;
 import com.md.library.utils.Utility;
+import com.md.library.widgets.SimpleDialog;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,7 +21,22 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(getApplicationContext(), "Clicked", Toast.LENGTH_SHORT).show();
+				SimpleDialog dialog = new SimpleDialog(MainActivity.this, "Title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam");
+				dialog.setOnAcceptButtonClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(MainActivity.this, "Accepted", Toast.LENGTH_SHORT).show();
+					}
+				});
+				dialog.setOnCancelButtonClickListener(new View.OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						Toast.makeText(MainActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+					}
+				});
+				dialog.show();
 			}
 		});
 		

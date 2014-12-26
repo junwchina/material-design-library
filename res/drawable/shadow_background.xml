@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item>
-      <nine-patch android:src="@drawable/background_button"/>
+      <nine-patch android:src="@drawable/shadow_image"/>
     </item>
     <item android:id="@+id/shape_bacground">
         <shape android:shape="rectangle" >

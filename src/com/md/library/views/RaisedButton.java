@@ -36,7 +36,7 @@ public class RaisedButton extends Button {
 		super.onPreInitialize(context);
 		mButtonHorizontalPadding = 16;
 		
-		mBackgroundResourceId = R.drawable.background_button_rectangle;
+		mBackgroundResourceId = R.drawable.shadow_background;
 		
 		mLeftOffset = Utility.convertDpToPx(context, 6);
 		mRightOffset = Utility.convertDpToPx(context, 6);

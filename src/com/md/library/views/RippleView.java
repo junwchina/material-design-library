@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
@@ -200,6 +201,36 @@ public class RippleView extends RelativeLayout {
     	}
     }
     
+    
+    @Override
+    public void setOnClickListener(OnClickListener l) {
+    	
+    	final OnClickListener listener = l;
+    	super.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+		          Handler  myHandler = new Handler();
+		          myHandler.postDelayed( new DelayListenerRunnable(view, listener), (long)mDuration);
+			}
+    	});
+    }
+    
+    
+    public static class DelayListenerRunnable implements Runnable {
+    	
+    	private View mView;
+    	private OnClickListener mListener;
+    	public DelayListenerRunnable(final View v, final OnClickListener l) {
+    		mView = v;
+    		mListener = l;
+    	}
+    	
+		@Override
+		public void run() {
+			mListener.onClick(mView);
+		}    	
+    }
     
 	protected void onPreInitialize(Context context) {}
 	protected void onPostInitialize(Context context) {}
