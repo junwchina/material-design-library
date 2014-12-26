@@ -44,7 +44,7 @@
                     android:id="@+id/message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+                    android:text="Content"
                     android:textColor="#000"
                     android:textSize="18sp" />
             </LinearLayout>
