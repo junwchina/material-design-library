@@ -78,9 +78,7 @@ public abstract class Button extends RippleView {
 		mButtonTextView = new TextView(context);
 
 		if(null != mButtonText) {
-			mButtonTextView.setText(mButtonText.toUpperCase());
-			mButtonTextView.setTypeface(null, Typeface.BOLD);
-			mButtonTextView.setTextColor(mButtonTextColor);		
+			setText(mButtonText);
 		}
 		
 		if(null != mButtonText) {
@@ -111,5 +109,12 @@ public abstract class Button extends RippleView {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	
+	
+	public void setText(String text) {
+		mButtonTextView.setText(text.toUpperCase());
+		mButtonTextView.setTypeface(null, Typeface.BOLD);
+		mButtonTextView.setTextColor(mButtonTextColor);		
 	}
 }
