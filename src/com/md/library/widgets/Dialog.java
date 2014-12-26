@@ -37,15 +37,6 @@ public abstract class Dialog extends android.app.Dialog {
 		mLayout = layout;
 	}
 	
-	
-//	public Dialog(Context context, int layout, String title, String message) {
-//		super(context, android.R.style.Theme_Translucent);
-//		mContext = context;
-//		mTitle = title;
-//		mMessage = message;
-//	}
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);

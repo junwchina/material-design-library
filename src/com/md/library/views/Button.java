@@ -82,12 +82,13 @@ public abstract class Button extends RippleView {
 		}
 		
 		if(null != mButtonText) {
-			if(-1 == mButtonTextSize)
-				mButtonTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mButtonTextSize);
+			if(-1 != mButtonTextSize)
+				setTextSizeInPx(mButtonTextSize);
 			else {
-				mButtonTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mDefaultTextSize);
+				setTextSizeInSp(mDefaultTextSize);
 			}
 		}
+		
 		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, Utility.convertDpToPx(context, mButtonHeight));
 		params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 		mButtonTextView.setGravity(Gravity.CENTER);
@@ -115,6 +116,21 @@ public abstract class Button extends RippleView {
 	public void setText(String text) {
 		mButtonTextView.setText(text.toUpperCase());
 		mButtonTextView.setTypeface(null, Typeface.BOLD);
+		setTextColor(mButtonTextColor);
+	}	
+	
+	public void setTextColor(int color) {
+		mButtonTextColor = color;
 		mButtonTextView.setTextColor(mButtonTextColor);		
+	}
+	
+	public void setTextSizeInPx(float px) {
+		mButtonTextSize = px;
+		mButtonTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mButtonTextSize);
+	}
+	
+	public void setTextSizeInSp(float sp) {
+		mButtonTextSize = sp;
+		mButtonTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mButtonTextSize);
 	}
 }
