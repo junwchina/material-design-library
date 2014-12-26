@@ -11,7 +11,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,6 +29,7 @@ public abstract class Button extends RippleView {
 	
 	protected int mDefaultTextSize;
 	protected int mBackgroundResourceId;
+	protected int mDisabledBackgroundColor;
 
 	
 	public Button(Context context) {
@@ -60,9 +60,12 @@ public abstract class Button extends RippleView {
 	@Override
 	protected void onPostInitAttributes(Context context, AttributeSet attrs, TypedArray typedArray) {
 		super.onPostInitAttributes(context, attrs, typedArray);
+		mDisabledBackgroundColor = typedArray.getColor(R.styleable.RippleView_disabledColor, -1);
 		mButtonTextColor = typedArray.getColor(R.styleable.RippleView_textColor, android.R.color.primary_text_dark);
 		mButtonTextSize = typedArray.getDimension(R.styleable.RippleView_textSize, -1);
 		mButtonText = typedArray.getString(R.styleable.RippleView_text);
+		
+		Utility.logD(this.getClass().getName() + ": textcolor: " + mButtonTextColor  + " mButtonTextSize is " + mButtonTextSize + " button text: " + mButtonText);
 	}
 	
 	
@@ -81,14 +84,13 @@ public abstract class Button extends RippleView {
 			setText(mButtonText);
 		}
 		
-		if(null != mButtonText) {
-			if(-1 != mButtonTextSize)
-				setTextSizeInPx(mButtonTextSize);
-			else {
-				setTextSizeInSp(mDefaultTextSize);
-			}
+		Utility.logD(this.getClass().getName() + ": mButtonTextSize is " + mButtonTextSize);
+		if(-1 != mButtonTextSize)
+			setTextSizeInPx(mButtonTextSize);
+		else {
+			setTextSizeInSp(mDefaultTextSize);
 		}
-		
+	
 		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, Utility.convertDpToPx(context, mButtonHeight));
 		params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 		mButtonTextView.setGravity(Gravity.CENTER);
@@ -100,6 +102,16 @@ public abstract class Button extends RippleView {
 		addView(mButtonTextView);
 	}
 	
+	
+	@Override
+	public void setEnabled(boolean enabled) {
+		if(enabled) {
+			setBackgroundColor(mBackgroundColor);
+		}else {
+			if(-1 != mDisabledBackgroundColor) setBackgroundColor(mDisabledBackgroundColor);
+		}
+		super.setEnabled(enabled);
+	}
 	
 	@Override
 	public void setBackgroundColor(int color) {
@@ -114,6 +126,7 @@ public abstract class Button extends RippleView {
 	
 	
 	public void setText(String text) {
+		Utility.logD(this.getClass().getName() + ": setText is " + text);
 		mButtonTextView.setText(text.toUpperCase());
 		mButtonTextView.setTypeface(null, Typeface.BOLD);
 		setTextColor(mButtonTextColor);

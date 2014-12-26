@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         app:rippleColor="#999999"
+        app:zoom="true"
         >
         <TextView android:id="@+id/btn" 
             android:layout_width="match_parent"

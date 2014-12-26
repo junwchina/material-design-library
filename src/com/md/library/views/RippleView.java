@@ -78,7 +78,7 @@ public class RippleView extends RelativeLayout {
 	
 	
 	protected void onInitAttributes(Context context, AttributeSet attrs) {	
-		TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.RippleView, 0, 0);
+		TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleView, 0, 0);
 		
     	mBackgroundColor = ResourceUtility.getAndroidInstance().getAttributeColor(context, attrs, "background", android.R.color.white);
 		mRippleColor = typedArray.getColor(R.styleable.RippleView_rippleColor, Utility.makeAlphaColor(mBackgroundColor, 150));
@@ -179,7 +179,7 @@ public class RippleView extends RelativeLayout {
     
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-    	if(mGestureDetector.onTouchEvent(event) && !mAnimationRunning) {
+    	if(isEnabled() && mGestureDetector.onTouchEvent(event) && !mAnimationRunning) {
     		if(mZoom) startAnimation(mScaleAnimation);
     		
     		x = event.getX();
@@ -216,6 +216,18 @@ public class RippleView extends RelativeLayout {
     	});
     }
     
+    
+    public void setRippleColor(int color) {
+    	mRippleColor = color;
+    }
+    
+    public void setZoom(boolean zoom) {
+    	mZoom = zoom;
+    }
+    
+    public void setDuration(int duration) {
+    	mDuration = duration;
+    }
     
     public static class DelayListenerRunnable implements Runnable {
     	
