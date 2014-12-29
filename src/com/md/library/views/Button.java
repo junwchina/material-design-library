@@ -64,8 +64,6 @@ public abstract class Button extends RippleView {
 		mButtonTextColor = typedArray.getColor(R.styleable.RippleView_textColor, android.R.color.primary_text_dark);
 		mButtonTextSize = typedArray.getDimension(R.styleable.RippleView_textSize, -1);
 		mButtonText = typedArray.getString(R.styleable.RippleView_text);
-		
-		Utility.logD(this.getClass().getName() + ": textcolor: " + mButtonTextColor  + " mButtonTextSize is " + mButtonTextSize + " button text: " + mButtonText);
 	}
 	
 	
@@ -84,7 +82,6 @@ public abstract class Button extends RippleView {
 			setText(mButtonText);
 		}
 		
-		Utility.logD(this.getClass().getName() + ": mButtonTextSize is " + mButtonTextSize);
 		if(-1 != mButtonTextSize)
 			setTextSizeInPx(mButtonTextSize);
 		else {
@@ -126,7 +123,6 @@ public abstract class Button extends RippleView {
 	
 	
 	public void setText(String text) {
-		Utility.logD(this.getClass().getName() + ": setText is " + text);
 		mButtonTextView.setText(text.toUpperCase());
 		mButtonTextView.setTypeface(null, Typeface.BOLD);
 		setTextColor(mButtonTextColor);

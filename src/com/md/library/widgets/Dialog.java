@@ -52,7 +52,6 @@ public abstract class Dialog extends android.app.Dialog {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				Utility.logD("onTouchEvent");
 				if (event.getX() < mDialogView.getLeft() 
 						|| event.getX() >mDialogView.getRight()
 						|| event.getY() > mDialogView.getBottom() 
