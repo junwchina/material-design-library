@@ -11,8 +11,9 @@
         android:background="@android:color/white"
         app:rippleColor="#999999"
         app:zoom="true"
+        android:id="@+id/show_dialog"
         >
-        <TextView android:id="@+id/btn" 
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Text RippleView"
