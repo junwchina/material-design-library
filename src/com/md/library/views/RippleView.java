@@ -80,12 +80,15 @@ public class RippleView extends RelativeLayout {
 	protected void onInitAttributes(Context context, AttributeSet attrs) {	
 		TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RippleView, 0, 0);
 		
-    	mBackgroundColor = ResourceUtility.getAndroidInstance().getAttributeColor(context, attrs, "background", android.R.color.white);
+		
+		mBackgroundColor = typedArray.getColor(R.styleable.RippleView_backgroundColor, -1);
+		if(mBackgroundColor == -1 ) {
+	    	mBackgroundColor = ResourceUtility.getAndroidInstance().getAttributeColor(context, attrs, "background", android.R.color.white);
+		}
 		mRippleColor = typedArray.getColor(R.styleable.RippleView_rippleColor, Utility.makeAlphaColor(mBackgroundColor, 150));
-		mZoom = ResourceUtility.getMaterialInstance().getAttributeBooleanValue(attrs, "zoom", mZoom);
-		mClickAfterRipple = ResourceUtility.getMaterialInstance().getAttributeBooleanValue(attrs, "clickAfterRipple", mClickAfterRipple);
-		mPaintAlpha = ResourceUtility.getMaterialInstance().getAttributeIntValue(attrs, "rippleAlpha", mPaintAlpha);
-		mDuration = ResourceUtility.getMaterialInstance().getAttributeIntValue(attrs, "duration", mDuration);
+		mZoom = typedArray.getBoolean(R.styleable.RippleView_zoom, mZoom);
+		mPaintAlpha = typedArray.getInteger(R.styleable.RippleView_rippleAlpha, mPaintAlpha);
+		mDuration = typedArray.getInteger(R.styleable.RippleView_duration, mDuration);
 		
 		onPostInitAttributes(context, attrs, typedArray);
 		typedArray.recycle();
