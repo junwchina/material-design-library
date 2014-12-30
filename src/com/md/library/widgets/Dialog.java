@@ -2,23 +2,22 @@ package com.md.library.widgets;
 
 
 import com.md.library.R;
-import com.md.library.utils.Utility;
-import com.md.library.views.FlatButton;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.View.OnTouchListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 
 public abstract class Dialog extends android.app.Dialog {
@@ -34,6 +33,7 @@ public abstract class Dialog extends android.app.Dialog {
 
 	public Dialog(Context context, int layout) {
 		super(context, android.R.style.Theme_Translucent);
+		mContext = context;
 		mLayout = layout;
 	}
 	
@@ -41,7 +41,7 @@ public abstract class Dialog extends android.app.Dialog {
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-	    setContentView(mLayout);
+	    setContentView(R.layout.dialog);
 	    
 	    mDialogView = (RelativeLayout)findViewById(R.id.contentDialog);
 	    mRootView = (RelativeLayout)findViewById(R.id.dialog_rootView);
@@ -61,8 +61,15 @@ public abstract class Dialog extends android.app.Dialog {
 				return false;
 			}
 		});
+	    
+	    onCreateDialogView(LayoutInflater.from(mContext), mDialogView);
 	}
 
+	
+	
+	protected View onCreateDialogView(LayoutInflater layoutInflater, ViewGroup parent) {
+		return null;
+	}
 	
 	public void setBackground(int color) {
 		mBackgroundColor = color;

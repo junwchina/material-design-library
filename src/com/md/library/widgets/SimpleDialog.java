@@ -5,7 +5,9 @@ import com.md.library.views.FlatButton;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class SimpleDialog extends Dialog {
@@ -25,10 +27,14 @@ public class SimpleDialog extends Dialog {
 
 
 	public SimpleDialog(Context context, String title, String message) {
-		super(context, R.layout.simple_dialog);
-		mContext = context;
+		super(context, R.layout.dialog);
 		mTitle = title;
 		mMessage = message;
+	}
+	
+	@Override
+	protected View onCreateDialogView(LayoutInflater layoutInflater, ViewGroup parent) {
+		return layoutInflater.inflate(R.layout.simple_dialog, parent);
 	}
 	
 	
