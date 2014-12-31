@@ -21,7 +21,7 @@ public abstract class Button extends RippleView {
 	protected float mButtonTextSize;
 	protected String mButtonText;
 	
-	protected int mButtonHeight;
+	protected int mButtonMinHeight;
 	protected int mButtonHorizontalMargin;
 	protected int mButtonVerticalMargin;
 	protected int mButtonHorizontalPadding;
@@ -47,7 +47,7 @@ public abstract class Button extends RippleView {
 	@Override
 	protected void onPreInitialize(Context context) {
 		super.onPreInitialize(context);
-		mButtonHeight = 36;
+		mButtonMinHeight = 36;
 		mButtonHorizontalMargin = 4;		// 4dp
 		mButtonVerticalMargin = 12;
 		mButtonHorizontalPadding = 8;
@@ -88,10 +88,11 @@ public abstract class Button extends RippleView {
 			setTextSizeInSp(mDefaultTextSize);
 		}
 	
-		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, Utility.convertDpToPx(context, mButtonHeight));
+		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 		mButtonTextView.setGravity(Gravity.CENTER);
 		mButtonTextView.setLayoutParams(params);
+		mButtonTextView.setMinHeight(Utility.convertDpToPx(context, mButtonMinHeight));
 		
 		int hPadding = Utility.convertDpToPx(context, mButtonHorizontalPadding);
 		mButtonTextView.setPadding(hPadding, 0, hPadding, 0);

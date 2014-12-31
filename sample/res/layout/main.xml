@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         app:text="Flat Button"
+        app:textSize="46sp"
         app:textColor="#2196F3" /> 
     
      <com.md.library.views.RaisedButton android:id="@+id/raised_button"
@@ -36,5 +37,6 @@
         app:textSize="14sp"
         app:text="Raised Button"
         app:textColor="#ffffff" />
-        
+     
+     
 </LinearLayout>
