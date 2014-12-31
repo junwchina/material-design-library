@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
    	xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    style="@style/DefaultDialogContentStyle" >
     
      <TextView
             android:id="@+id/title"
@@ -20,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
-            android:paddingBottom="50dp"
+            android:paddingBottom="16dp"
             android:scrollbarSize="2dp"
             android:scrollbarThumbVertical="@color/thumbColor" >
 
@@ -42,8 +41,9 @@
        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/message_scrollView"
-            android:layout_marginTop="24dp"
+            android:layout_below="@id/message_scrollView"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
             android:gravity="right"
             android:orientation="horizontal" >
 
@@ -52,14 +52,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text="Cancel"
-                app:textColor="#1E88E5" />
+                app:textColor="@color/defautButtonTextColor" />
 
             <com.md.library.views.FlatButton
                 android:id="@+id/button_accept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:text="Accept"
-                app:textColor="#1E88E5" />
+                app:textColor="@color/defautButtonTextColor" />
         </LinearLayout>
 
 </RelativeLayout>

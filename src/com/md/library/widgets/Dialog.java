@@ -23,25 +23,31 @@ import android.widget.RelativeLayout;
 public abstract class Dialog extends android.app.Dialog {
 	
 	protected Context mContext;
-	protected int mLayout;	
 	
 	protected RelativeLayout mRootView;
 	protected RelativeLayout mDialogView;
 	
+	private int mLayout = R.layout.dialog;
 
 	private int mBackgroundColor = Color.parseColor("#ffffff");
 
-	public Dialog(Context context, int layout) {
+	public Dialog(Context context) {
 		super(context, android.R.style.Theme_Translucent);
 		mContext = context;
+	}
+	
+	
+	public Dialog(Context context, int layout) {
+		this(context);
 		mLayout = layout;
 	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-	    setContentView(R.layout.dialog);
+		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+	    setContentView(mLayout);
 	    
 	    mDialogView = (RelativeLayout)findViewById(R.id.contentDialog);
 	    mRootView = (RelativeLayout)findViewById(R.id.dialog_rootView);

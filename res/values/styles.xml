@@ -1,2 +1,11 @@
 <resources>
+    
+    <style name="DefaultDialogContentStyle">
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

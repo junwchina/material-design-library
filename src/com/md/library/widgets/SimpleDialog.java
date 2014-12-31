@@ -27,7 +27,7 @@ public class SimpleDialog extends Dialog {
 
 
 	public SimpleDialog(Context context, String title, String message) {
-		super(context, R.layout.dialog);
+		super(context);
 		mTitle = title;
 		mMessage = message;
 	}
@@ -112,13 +112,13 @@ public class SimpleDialog extends Dialog {
 	
 	public void setOnAcceptButtonClickListener(View.OnClickListener onAcceptButtonClickListener) {
 		this.onAcceptButtonClickListener = onAcceptButtonClickListener;
-		if(mAcceptButton != null)
-			mAcceptButton.setOnClickListener(onAcceptButtonClickListener);
+//		if(mAcceptButton != null)
+//			mAcceptButton.setOnClickListener(onAcceptButtonClickListener);
 	}
 
 	public void setOnCancelButtonClickListener( View.OnClickListener onCancelButtonClickListener) {
 		this.onCancelButtonClickListener = onCancelButtonClickListener;
-		if(mCancelButton != null)
-			mCancelButton.setOnClickListener(onCancelButtonClickListener);
+//		if(mCancelButton != null)
+//			mCancelButton.setOnClickListener(onCancelButtonClickListener);
 	}
 }
