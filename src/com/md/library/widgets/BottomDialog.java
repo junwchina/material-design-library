@@ -8,5 +8,5 @@ public class BottomDialog extends Dialog {
 
 	public BottomDialog(Context context) {
 		super(context, R.layout.bottom_dialog);
-	}
+	}	
 }

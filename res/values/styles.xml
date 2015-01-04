@@ -1,5 +1,4 @@
-<resources>
-    
+<resources> 
     <style name="DefaultDialogContentStyle">
         <item name="android:paddingTop">24dp</item>
         <item name="android:paddingLeft">24dp</item>

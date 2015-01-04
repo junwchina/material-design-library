@@ -4,7 +4,7 @@
     android:id="@+id/dialog_rootView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#00000000">
+    android:windowContentOverlay="@null">
     
     
     <RelativeLayout android:id="@+id/contentDialog"
