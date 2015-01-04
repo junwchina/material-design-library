@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class SimpleDialog extends Dialog {
@@ -93,6 +94,13 @@ public class SimpleDialog extends Dialog {
 			mMessageView.setText(message);
 		}
 	}
+	
+	
+	public void setMessage(View view) {
+		ScrollView root = (ScrollView) findViewById(R.id.message_scrollView);
+		root.addView(view);
+	}
+	
 	
 	public FlatButton getCancelButton() {
 		return mCancelButton;
