@@ -17,10 +17,11 @@ public class CustomProgressDialog extends AlertDialog {
 		super(context);
 	}
 	
-	public static void show(Context context,CharSequence message) {
+	public static CustomProgressDialog show(Context context,CharSequence message) {
 		CustomProgressDialog dialog = new CustomProgressDialog(context);
 		dialog.mMessage = message;
 		dialog.show();
+		return dialog;
 	}
 	
 	@Override
@@ -40,5 +41,10 @@ public class CustomProgressDialog extends AlertDialog {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		return true;
+	}
+	
+	@Override
+	public void onBackPressed() {
+		
 	}
 }

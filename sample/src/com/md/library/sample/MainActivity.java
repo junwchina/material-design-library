@@ -2,17 +2,19 @@ package com.md.library.sample;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.md.library.views.RippleView;
-import com.md.library.widgets.SimpleDialog;
 import com.md.library.widgets.CustomProgressDialog;
+import com.md.library.widgets.SimpleDialog;
 
 public class MainActivity extends ActionBarActivity {
-
+	
+	private CustomProgressDialog progressdialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,7 +31,16 @@ public class MainActivity extends ActionBarActivity {
 
 					@Override
 					public void onClick(View v) {
-						CustomProgressDialog.show(context,"hello loading...");
+						progressdialog = CustomProgressDialog.show(context,"hello loading...");
+						
+						new Handler().postDelayed(new Runnable() {
+							
+							@Override
+							public void run() {
+								// TODO Auto-generated method stub
+								progressdialog.cancel();
+							}
+						}, 1000);
 					}
 					
 				});
