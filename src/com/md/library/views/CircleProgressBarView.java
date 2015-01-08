@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Cap;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -79,20 +80,20 @@ public class CircleProgressBarView extends View {
 		paint.setColor(array.getColor(R.styleable.CircleProgressBar_PaintColor, Color.WHITE));// 设置画笔颜色
 		paint.setStrokeWidth(racWidth);// 设置画笔宽度
 		paint.setStyle(Paint.Style.STROKE);// 设置中空的样式
-//		int type = array.getType(R.styleable.CircleProgressBar_CapType);
-//		switch (type) {
-//		case 0:
-//			paint.setStrokeCap(Cap.BUTT);
-//			break;
-//		case 1:
-//			paint.setStrokeCap(Cap.ROUND);
-//			break;
-//		case 2:
-//			paint.setStrokeCap(Cap.SQUARE);
-//			break;
-//		default:
-//			break;
-//		}
+		int type = array.getInt(R.styleable.CircleProgressBar_CapType,0);
+		switch (type) {
+		case 0:
+			paint.setStrokeCap(Cap.BUTT);
+			break;
+		case 1:
+			paint.setStrokeCap(Cap.ROUND);
+			break;
+		case 2:
+			paint.setStrokeCap(Cap.SQUARE);
+			break;
+		default:
+			break;
+		}
 		
 		array.recycle();
 		
