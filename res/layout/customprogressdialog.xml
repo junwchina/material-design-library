@@ -18,8 +18,8 @@
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            circleprogress:LineWidth="10"
-            circleprogress:MaxRadian="250"
+            circleprogress:LineWidth="13"
+            circleprogress:MaxRadian="270"
             circleprogress:MinRadian="20"
             circleprogress:PaintColor="#FF888888"
             circleprogress:Speed="2.0" 
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/circleProgressBar"
             android:layout_centerVertical="true"
+            android:paddingRight="20dp"
             android:text="loading.."
             android:textSize="20dp" />
 
