@@ -22,14 +22,14 @@
 
     <declare-styleable name="CircleProgressBar"> 
         <!-- 弧宽 -->>
-        <attr name="LineWidth" format="dimension"/>
+        <attr name="LineWidth" format="reference|dimension"/>
         <!-- 速度 -->
-        <attr name="Speed" format="float"/>
+        <attr name="Speed" format="reference|float"/>
         <!-- 弧度 -->
-        <attr name="MaxRadian" format="integer"/>
-        <attr name="MinRadian" format="integer"/>
+        <attr name="MaxRadian" format="reference|integer"/>
+        <attr name="MinRadian" format="reference|integer"/>
         <!-- 颜色 -->
-        <attr name="PaintColor" format="color"></attr>
+        <attr name="PaintColor" format="reference|color"></attr>
         <!-- 是否使用圆头 -->
         <attr name="CapType" >
             <enum name="BUTT" value="0"/>
@@ -37,7 +37,7 @@
             <enum name="SQUARE" value="2"/>
         </attr>
         <!-- 设置偏移 -->
-        <attr name="offAngle" format="integer"/>
+        <attr name="offAngle" format="reference|integer"/>
         
     </declare-styleable>
     
