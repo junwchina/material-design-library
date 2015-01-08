@@ -1,13 +1,15 @@
 package com.md.library.sample;
 
-import com.md.library.views.RippleView;
-import com.md.library.widgets.SimpleDialog;
-
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.md.library.views.RippleView;
+import com.md.library.widgets.SimpleDialog;
+import com.md.library.widgets.CustomProgressDialog;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -15,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
+		final Context context = this;
 		RippleView btn = (RippleView)findViewById(R.id.show_dialog);
 		btn.setOnClickListener(new View.OnClickListener() {
 			
@@ -27,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
 					@Override
 					public void onClick(View v) {
-						
+						CustomProgressDialog.show(context,"hello loading...");
 					}
 					
 				});
