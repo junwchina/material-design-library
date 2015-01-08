@@ -22,7 +22,7 @@
 
     <declare-styleable name="CircleProgressBar"> 
         <!-- 弧宽 -->>
-        <attr name="LineWidth" format="integer"/>
+        <attr name="LineWidth" format="dimension"/>
         <!-- 速度 -->
         <attr name="Speed" format="float"/>
         <!-- 弧度 -->

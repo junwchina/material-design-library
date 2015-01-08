@@ -59,7 +59,7 @@ public class CircleProgressBarView extends View {
 		oval = new RectF();
 
 		TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressBar);
-		racWidth = array.getInt(R.styleable.CircleProgressBar_LineWidth, 10);
+		racWidth = array.getDimensionPixelSize(R.styleable.CircleProgressBar_LineWidth, 10);
 		speed = array.getFloat(R.styleable.CircleProgressBar_Speed, 1.0f);
 		maxRadian = array.getInt(R.styleable.CircleProgressBar_MaxRadian, 270);
 		minRadian = array.getInt(R.styleable.CircleProgressBar_MinRadian, 20);

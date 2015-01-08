@@ -18,7 +18,7 @@
             android:layout_marginLeft="20dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            circleprogress:LineWidth="13"
+            circleprogress:LineWidth="8dp"
             circleprogress:MaxRadian="270"
             circleprogress:MinRadian="20"
             circleprogress:PaintColor="#FF888888"
