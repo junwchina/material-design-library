@@ -48,26 +48,14 @@ public abstract class Dialog extends android.app.Dialog {
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    setContentView(mLayout);
+
 	    
 	    mDialogView = (RelativeLayout)findViewById(R.id.contentDialog);
 	    mRootView = (RelativeLayout)findViewById(R.id.dialog_rootView);
 	    
 	    initializeBackground();
 	    
-	    mRootView.setOnTouchListener(new OnTouchListener() {
-			
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getX() < mDialogView.getLeft() 
-						|| event.getX() >mDialogView.getRight()
-						|| event.getY() > mDialogView.getBottom() 
-						|| event.getY() < mDialogView.getTop()) {
-					dismiss();
-				}
-				return false;
-			}
-		});
-	    
+		setCanceledOnTouchOutside(true);
 	    onCreateDialogView(LayoutInflater.from(mContext), mDialogView);
 	}
 
@@ -96,6 +84,23 @@ public abstract class Dialog extends android.app.Dialog {
 		mRootView.startAnimation(AnimationUtils.loadAnimation(mContext, R.anim.dialog_root_show_amin));
 	}
 	
+	@Override
+	public void setCanceledOnTouchOutside(final boolean cancel) {
+		super.setCanceledOnTouchOutside(cancel);
+		mRootView.setOnTouchListener(new OnTouchListener() {
+				
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				if (event.getX() < mDialogView.getLeft() 
+						|| event.getX() >mDialogView.getRight()
+						|| event.getY() > mDialogView.getBottom() 
+						|| event.getY() < mDialogView.getTop()) {
+					if(cancel) dismiss();
+				}
+				return false;
+			}
+		});
+	}
 	
 	@Override
 	public void dismiss() {

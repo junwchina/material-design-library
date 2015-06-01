@@ -25,7 +25,11 @@ public class SimpleDialog extends Dialog {
 	private View.OnClickListener onAcceptButtonClickListener;
 	private View.OnClickListener onCancelButtonClickListener;
 
-
+	
+	public SimpleDialog(Context context) {
+		this(context, "", "");
+	}
+	
 
 	public SimpleDialog(Context context, String title, String message) {
 		super(context);
@@ -98,7 +102,17 @@ public class SimpleDialog extends Dialog {
 	
 	public void setMessage(View view) {
 		ScrollView root = (ScrollView) findViewById(R.id.message_scrollView);
+		root.removeAllViews();
 		root.addView(view);
+	}
+	
+	
+	public View setMessage(int layout) {
+		ScrollView root = (ScrollView) findViewById(R.id.message_scrollView);
+		root.removeAllViews();
+		View view = LayoutInflater.from(mContext).inflate(layout, root, false);
+		root.addView(view);
+		return view;
 	}
 	
 	
